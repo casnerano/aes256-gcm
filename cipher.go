@@ -19,8 +19,8 @@ func NewCipher(key []byte) *Cipher {
 }
 
 // Encrypt bytes.
-func (aes256gcm *Cipher) Encrypt(src []byte) ([]byte, error) {
-    aesblock, err := aes.NewCipher(aes256gcm.key)
+func (c *Cipher) Encrypt(src []byte) ([]byte, error) {
+    aesblock, err := aes.NewCipher(c.key)
     if err != nil {
         return nil, err
     }
@@ -40,8 +40,8 @@ func (aes256gcm *Cipher) Encrypt(src []byte) ([]byte, error) {
 }
 
 // Decrypt bytes.
-func (aes256gcm *Cipher) Decrypt(dst []byte) ([]byte, error) {
-    aesblock, err := aes.NewCipher(aes256gcm.key)
+func (c *Cipher) Decrypt(dst []byte) ([]byte, error) {
+    aesblock, err := aes.NewCipher(c.key)
     if err != nil {
         return nil, err
     }
